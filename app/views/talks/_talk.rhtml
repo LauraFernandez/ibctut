@@ -1,0 +1,19 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+<p>Talk
+<%#=talk.title%>
+<%= link_to talk.title, talk_path(talk.id) %>
+  :  <%=  talk.description %>
+( <%= link_to talk.room.name, talk_room_path(talk,talk.room) %> )
+<%='Speakers:' unless talk.speakers.size==0%>
+<%  talk.speakers.each do |speaker|%>
+ <%= link_to speaker.name,speaker_path(speaker)%>
+<%end%>
+
+</p>
+ 
+

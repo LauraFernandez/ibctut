@@ -1,0 +1,33 @@
+<%#*<h1>Evento%>
+<%#=@talk.event.name unless @talk.event.nil?%>
+<%#*</h1>%>
+<h1>Talk details</h1>
+<%= render :partial => 'talk',:locals=>{:talk=>@talk}%>
+
+<%= link_to 'Edit', edit_admin_talk_path(@talk) %> | 
+<%= link_to 'Back', admin_event_path(@talk.event.id) %>
+
+<%= render :partial => './comments/comment',:locals=>{:event=>@talk}%>
+
+<%#*<p>%>
+  <%#*<b>Title:</b>%>
+  <%#=h @talk.title %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Description:</b>%>
+  <%#=h @talk.description %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Speaker:</b>%>
+  <%#=@talk.speakers%>
+  <%#@talk.speakers.each do |speaker|%>
+  <%#=link_to speaker.name, speaker_path(speaker) %>
+  <%#end%>
+<%#*</p>%>
+<%#*<p>%>
+  <%#*<b>Room:</b>%>
+  <%#=link_to @talk.room.name, talk_room_path(@talk,@talk.room) %>
+<%#*</p>%>
+

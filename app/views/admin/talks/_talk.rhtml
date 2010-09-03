@@ -1,0 +1,34 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+<p>Talk
+<%#=talk.title%>
+<%= link_to talk.title, admin_talk_path(talk.id) %>
+  :  <%=  talk.description %>
+( <%= link_to talk.room.name, admin_talk_room_path(talk,talk.room) %> )
+<%='Speakers:' unless talk.speakers.size==0%>
+<%  talk.speakers.each do |speaker|%>
+ <%= link_to speaker.name,admin_speaker_path(speaker)%>
+<%end%>
+<%#= render :partial => 'admin/speakers/speaker',:collection=>talk.speakers %>
+</p>
+  <%#*<tr>%>
+    <%#*<td>%>
+<%#= link_to talk.title, admin_talk_path(talk.id) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#= link_to talk.description,admin_talk_path(talk.id) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#= link_to talk.room.name, admin_talk_room_path(talk,talk.room) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#  talk.speakers.each do |speaker|%>
+ <%#= link_to speaker.name,speaker_path(speaker)%>
+<%#end%>
+    <%#*</td>%>
+  <%#*</tr>%>
+

@@ -1,0 +1,48 @@
+
+<p>
+<h2>Comments</h2>
+<%#event=comment%>
+<% if event.comments.count != 0%>
+
+  <% event.comments.each do |comment| %>
+    <p><%= comment.author%> said <%= distance_of_time_in_words(Time.now,comment.created_at) %> ago.
+      <%= comment.body %>
+    </p>
+  <% end %>
+<% end %>
+</p>
+
+
+
+<%type=event.type.name.pluralize.downcase!%>
+<%if type=="events"%>
+  <%url=comment_events_path(event.id)%>
+<%elsif type=="talks"%>
+  <%url=comment_talks_path(event.id)%>
+<%end%>
+
+
+<%# if user_in_session? %>
+<% if logged_in? %>
+  <% form_for :comment, @comment,:url=>url do |f| %>
+
+    <p>
+      <%= f.label :author,'Name (*):' %>
+      <%= f.text_field :author, :value=>current_user.username, :readonly=>true%>
+    </p>
+    <p>
+      <%= f.label :email,'Email (*):' %>
+      <%= f.text_field :email %></p>
+    <%#*<p>%>
+    <%#= f.text_field :website  %>
+    <%#*website</p>%>
+    <p><%= f.text_area :body ,:rows=>4%></p>
+    <%= submit_tag "Comment" %>
+  <%end%>
+<%else%>
+  <%= link_to 'Login to comment', login_path %>
+<%end%>
+
+
+
+

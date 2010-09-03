@@ -1,0 +1,38 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<%# form_for :user, @user,:html=>{:method=>:put} do |form| %>
+<% form_for  @user do |form| %>
+ <%= form.error_messages %>
+
+
+
+<p>
+<%= form.label :username, "Username" %>
+<%= form.text_field :username %>
+</p>
+<p>
+<%= form.label :email, "Email" %>
+<%= form.text_field :email %>
+  </p>
+  <p>
+<%= form.label :password, "Password" %>
+<%= form.password_field :password %>
+  </p>
+  <p>
+<%= form.label :password_confirmation, "Password confirmation" %>
+<%= form.password_field :password_confirmation %>
+  </p>
+  <p>
+  <%= check_box_tag :admin,:admin,true %>
+<%= form.label :type, 'Admin' %>
+   </p>
+   <p>
+<%= form.submit "Submit" %>
+</p>
+<% end %>
+
+
+
