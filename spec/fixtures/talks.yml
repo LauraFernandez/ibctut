@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  string: 
+  description: 
+  string: 
+  integer: 
+  integer;roome: 
+
+two:
+  string: 
+  description: 
+  string: 
+  integer: 
+  integer;roome: 
