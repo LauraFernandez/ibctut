@@ -9,7 +9,7 @@ require 'remarkable_paperclip'
 require 'factory_girl'
 
 require 'webrat'
-require 'webrat/rspec-rails'
+require 'webrat/integrations/rspec-rails'
 Webrat.configure do |config|
   config.mode = :rails
 end 
