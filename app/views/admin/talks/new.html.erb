@@ -1,0 +1,37 @@
+<h1>New talk</h1>
+<!--,:url=>event_talks_path(@event)-->
+<% form_for(@talk ) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <%#*<p><%= options_from_collection_for_select(Speaker.all, :id, :name) %> 
+  <%#*<p><%= collection_select(:talk, :speaker_id, Speaker.all, :id, :name) %> 
+  <%= f.label :speaker %>
+  <ul>
+  <% Speaker.all.each do|speaker| %>
+  <li>
+    <%= check_box_tag "ids[]", speaker.id, false -%>
+<%#= check_box_tag "talk[speaker_ids][]", speaker.id, false -%>
+<%= speaker.name -%>
+  </li>
+
+  <%end%>
+  </ul>
+  <p>
+
+<%#= f.collection_select( :speaker_id, Speaker.all, :id, :name) %>
+  </p>
+  <p><%= f.label :room %><%= f.collection_select( :room_id, Room.all, :id, :name) %> </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%#= link_to 'Back', event_talks_path() %>

@@ -1,0 +1,34 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Users: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body>
+
+<p style="color: green"><%= notice %></p>
+<p><%="Login hecho como:#{current_user.type}" unless current_user.type.nil?%></p>
+<% if current_user %>
+     <%= link_to "Edit profile", edit_user_path(current_user) %> |
+     <%= link_to "Logout", logout_path %> |
+     <%= link_to "Public site", public_path %>
+   <% else %>
+     <%= link_to "Register", new_user_path %> |
+     <%= link_to "Log in", login_path %> |
+ <%if admin?%><%= link_to "Admin", admin_path %><%end%>
+   <% end %>
+     <hr/>
+<%#= link_to "Home", :controller=>"home",:action=>"index" %>
+<%= yield %>
+
+</body>
+</html>

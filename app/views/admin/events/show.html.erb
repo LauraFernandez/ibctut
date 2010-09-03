@@ -1,0 +1,47 @@
+
+<p>
+
+   <%= link_to 'New speaker', new_admin_speaker_path %>
+
+</p>
+<p>
+
+  <%= link_to 'New room', new_admin_room_path %>
+
+</p>
+<p>
+
+  <%= link_to 'New talk', new_admin_talk_path %>
+
+</p>
+<p><%= link_to 'Back to events', admin_events_path %></p>
+<h2>Event details</h2>
+<p>
+<%= link_to 'Edit', edit_admin_event_path(@event) %>
+
+</p>
+<%= render :partial => 'event',:locals=>{:event=>@event}%>
+
+
+
+<h2>Talks</h2>
+<%#*<table>%>
+  <%#*<tr>%>
+    <%#*<th>Title</th>%>
+    <%#*<th>Description</th>%>
+    <%#*<th>Room</th>%>
+    <%#*<th>Speakers</th>%>
+  <%#*</tr>%>
+
+  <%= render :partial => 'admin/talks/talk',:collection=>@event.talks %>
+
+
+<%#*</table>%>
+
+
+<%= render :partial => './comments/comment',:locals=>{:event=>@event}%>
+
+
+<%#= render :partial => 'comment',:object=>@event%>
+
+<%#*:locals =>{:event=>@event} %>

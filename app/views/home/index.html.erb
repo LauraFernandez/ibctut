@@ -1,0 +1,25 @@
+<h1>Welcome</h1>
+
+<p>
+<%#=link_to 'Speakers', speakers_path %>
+ <%#if current_user_admin?%>
+   <%#= link_to 'New speaker', new_speaker_path %>
+ <%#end%>
+</p>
+<p>
+<%#=link_to 'Rooms', rooms_path %>
+<%#if current_user_admin?%>
+  <%#= link_to 'New room', new_room_path %>
+<%#end%>
+</p>
+<p>
+<%#= link_to 'Talks', talks_path %>
+<%#if current_user_admin?%>
+  <%#= link_to 'New talk', new_talk_path %>
+<%#end%>
+</p>
+<p>
+<%= link_to 'Events', events_path %>
+
+</p>
+

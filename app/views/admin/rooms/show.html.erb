@@ -1,0 +1,20 @@
+<h1>Room details</h1>
+<%= render :partial => 'room',:locals=>{:room=>@room}%>
+<%#*<p>%>
+  <%#*<b>Name:</b>%>
+  <%#=h @room.name %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Description:</b>%>
+  <%#=h @room.description %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Capacity:</b>%>
+  <%#=h @room.capacity %>
+<%#*</p>%>
+
+
+<%= link_to 'Edit', edit_admin_talk_room_path %> |
+<%= link_to 'Back', :back %>

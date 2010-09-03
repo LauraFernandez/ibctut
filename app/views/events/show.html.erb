@@ -1,0 +1,66 @@
+<p><%= link_to 'Back to events', admin_events_path %></p>
+<h2>Event details</h2>
+<%= render :partial => 'event',:locals=>{:event=>@event}%>
+<h2>Talks</h2>
+<%= render :partial => 'talks/talk',:collection=>@event.talks %>
+
+
+<%#*<h2>Event details</h2>%>
+<%#*<p>%>
+  <%#*<b>Name:</b>%>
+  <%#=h @event.name %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Description:</b>%>
+  <%#=h @event.description %>
+<%#*</p>%>
+
+<%#*<p>%>
+  <%#*<b>Address:</b>%>
+  <%#=h @event.address %>
+<%#*</p>%>
+
+<%#*<p>%>
+<%#= link_to 'Edit', edit_event_path(@event) %> 
+<%#= link_to 'Back', events_path %>
+<%#*</p>%>
+
+
+
+<%#*<h2>Talks</h2>%>
+<%#*<table>%>
+  <%#*<tr>%>
+    <%#*<th>Title</th>%>
+    <%#*<th>Description</th>%>
+    <%#*<th>Room</th>%>
+    <%#*<th>Speakers</th>%>
+  <%#*</tr>%>
+
+<%# @event.talks.each do |talk|  %>
+  <%#*<tr>%>
+    <%#*<td>%>
+<%#= link_to talk.title, talk_path(talk.id) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#= link_to talk.description,talk_path(talk.id) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#= link_to talk.room.name, talk_room_path(talk,talk.room) %>
+    <%#*</td>%>
+    <%#*<td>%>
+<%#  talk.speakers.each do |speaker|%>
+<%#= link_to speaker.name,speaker_path(speaker)%>
+<%#end%>
+    <%#*</td>%>
+  <%#*</tr>%>
+<%# end %>
+<%#*</table>%>
+
+
+<%= render :partial => './comments/comment',:locals=>{:event=>@event}%>
+
+
+<%#= render :partial => 'comment',:object=>@event%>
+
+<%#*:locals =>{:event=>@event} %>
