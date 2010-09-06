@@ -28,11 +28,16 @@
 <% if current_user %>
      <%= link_to "Edit profile", edit_user_path(current_user) %> |
      <%= link_to "Logout", logout_path %> |
-     <%= link_to "Public site", public_path %>
+     <%= link_to "Public site", public_path %> |
+
+          <%= if_admin? do link_to "Admin", admin_path end  %>
+ <%#if admin?%>
+   <%#= link_to "Admin", admin_path %>
+ <%#end%>
    <% else %>
      <%= link_to "Register", new_user_path %> |
      <%= link_to "Log in", login_path %> |
- <%if admin?%><%= link_to "Admin", admin_path %><%end%>
+
    <% end %>
      <hr/>
 <%#= link_to "Home", :controller=>"home",:action=>"index" %>

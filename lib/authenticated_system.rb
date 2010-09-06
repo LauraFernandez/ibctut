@@ -88,7 +88,7 @@ module AuthenticatedSystem
     # to the passed default.  Set an appropriately modified
     #   after_filter :store_location, :only => [:index, :new, :show, :edit]
     # for any controller you want to be bounce-backable.
-    def redirect_back_or_default(default)
+    def redirect_back_or_default(default=nil)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end

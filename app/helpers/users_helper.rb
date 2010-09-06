@@ -17,6 +17,12 @@ module UsersHelper
     end
   end
 
+  def if_admin?(&block)
+    if admin?
+      yield 
+    end
+  end
+
   #
   # Link to user's page ('users/1')
   #
